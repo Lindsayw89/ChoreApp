@@ -7,6 +7,8 @@ import { LoginComponent } from './login/login.component';
 import { RegistrationComponent } from './registration/registration.component';
 import { UserProfileComponent } from './user-profile/user-profile.component';
 import {ReactiveFormsModule} from '@angular/forms/';
+import {ApiService} from '../app/services/api.service';
+import {AuthService} from '../app/services/auth.service';
 
 
 @NgModule({
@@ -20,7 +22,7 @@ import {ReactiveFormsModule} from '@angular/forms/';
     BrowserModule,
     AppRoutingModule, ReactiveFormsModule
   ],
-  providers: [],
+  providers: [ApiService,AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

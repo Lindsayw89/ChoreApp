@@ -1,1 +1,39 @@
-<p>registration works!</p>
+<p>Register New User</p>
+<div class="container text-center" style="width:35%">
+<h3>Register New User</h3>
+<form [formGroup] ="registerForm" (ngSubmit)= "onSubmit()">
+
+    <div class="form-group">
+        <label>First Name</label>
+        <input type="text" class="form-control" formControlName="firstname" [(ngModel)]="newUser.firstname">
+   <div *ngIf= "!this.registerForm.controls.firstname.valid && this.registerForm.controls.firstname.touched
+   " style="color: red">Name required</div>
+</div>
+
+<div class="form-group">
+    <label>Last Name</label>
+    <input type="text" class="form-control" formControlName="lastname" [(ngModel)]="newUser.lastname">
+<div *ngIf= "!this.registerForm.controls.lastname.valid && this.registerForm.controls.lastname.touched
+" style="color: red">Last Name required</div>
+
+</div>
+
+
+    <div class="form-group">
+        <label>Username</label>
+        <input type="text" class="form-control" formControlName="username" [(ngModel)]="newUser.username">
+   <div *ngIf= "!this.registerForm.controls.username.valid && this.registerForm.controls.username.touched
+   " style="color: red">username required</div>
+   
+</div>
+    <div class="form-group">
+        <label>Password</label>
+        <input type="text" class="form-control" formControlName="password" [(ngModel)]="newUser.password">
+        <div *ngIf= "!this.registerForm.controls.password.valid && this.registerForm.controls.password.touched" style="color: red">password required</div>
+
+    </div>
+    <button type="submit" class="btn btn-primary">submit</button>
+</form>
+<a routerLink="/userprofile">Submit</a>
+
+</div>

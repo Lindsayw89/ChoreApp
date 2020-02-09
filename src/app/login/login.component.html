@@ -15,7 +15,7 @@
         <div *ngIf= "!this.loginForm.controls.password.valid && this.loginForm.controls.password.touched" style="color: red">password required</div>
 
     </div>
-    <button type="submit" class="btn btn-info">submit</button>
+    <button (click)="loginAuth()" type="submit" class="btn btn-info">submit</button>
 </form>
 <a routerLink="/registration">Register</a>
 

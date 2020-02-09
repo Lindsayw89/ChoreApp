@@ -9,6 +9,10 @@ import { UserProfileComponent } from './user-profile/user-profile.component';
 import {ReactiveFormsModule} from '@angular/forms/';
 import {ApiService} from '../app/services/api.service';
 import {AuthService} from '../app/services/auth.service';
+import {HttpClientModule, HTTP_INTERCEPTORS } from'@angular/common/http';
+import { AuthInterceptor } from './auth-Inceptor';
+import {FormsModule} from '@angular/forms';
+
 
 
 @NgModule({
@@ -20,9 +24,9 @@ import {AuthService} from '../app/services/auth.service';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule, ReactiveFormsModule
+    AppRoutingModule, ReactiveFormsModule, HttpClientModule, FormsModule
   ],
-  providers: [ApiService,AuthService],
+  providers: [ApiService,AuthService,  {provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true}],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

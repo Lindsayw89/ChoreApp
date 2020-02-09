@@ -21,19 +21,19 @@
 
     <div class="form-group">
         <label>Username</label>
-        <input type="text" class="form-control" formControlName="username" [(ngModel)]="newUser.username">
+        <input type="text" class="form-control" formControlName="username">
    <div *ngIf= "!this.registerForm.controls.username.valid && this.registerForm.controls.username.touched
    " style="color: red">username required</div>
    
 </div>
     <div class="form-group">
         <label>Password</label>
-        <input type="text" class="form-control" formControlName="password" [(ngModel)]="newUser.password">
+        <input type="text" class="form-control" formControlName="password">
         <div *ngIf= "!this.registerForm.controls.password.valid && this.registerForm.controls.password.touched" style="color: red">password required</div>
 
     </div>
-    <button type="submit" class="btn btn-primary">submit</button>
+    <button (click)="authenticate()" type="submit" class="btn btn-primary">submit</button>
 </form>
-<a routerLink="/userprofile">Submit</a>
+<a routerLink="/userprofile">user profile</a>
 
 </div>
